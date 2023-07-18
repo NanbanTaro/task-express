@@ -1,7 +1,13 @@
 const express = require('express')
+const cors = require('cors');
 const app = express()
 const port = 3000
 let tasks = []
+
+// フロント側のローカルサーバーのポートは3001の前提
+app.use((cors({
+    origin: 'http://localhost:3001'
+})));
 
 app.use(express.json())
 
